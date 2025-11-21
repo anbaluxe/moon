@@ -10,7 +10,9 @@ function App() {
 	useEffect(() => {
 		function sortData() {
 			if (search) {
-				const result = data.filter(el => el.name.includes(search))
+				const result = data.filter(el =>
+					el.name.toLowerCase().includes(search.toLowerCase())
+				)
 				setDataSort(result)
 			}
 		}
