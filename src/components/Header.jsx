@@ -1,6 +1,6 @@
-import NavMenu from '../components/NavMenu'
+import NavMenu from './NavMenu'
 
-export default function Header({ shop, setSearch, search }) {
+export default function Header({ shop, setDataSort, data }) {
 	return (
 		<header>
 			<div className='container'>
@@ -9,9 +9,20 @@ export default function Header({ shop, setSearch, search }) {
 					<NavMenu />
 					<input
 						type='text'
-						value={search}
 						placeholder='Search item'
-						onChange={e => setSearch(e.target.value)}
+						onChange={e => {
+							setDataSort(() => {
+								if (e.target.value) {
+									const result = data.filter(el =>
+										el.name.toLowerCase().includes(e.target.value.toLowerCase())
+									)
+									return result
+								}
+								if (!e.target.value) {
+									return data
+								}
+							})
+						}}
 					/>
 					<div className='flex justify-between gap-5'>
 						<a href='#' className='w-6 h-6'>
