@@ -18,7 +18,7 @@ const data = [
 		name: 'Porcelain Dinner Plate',
 		description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
 		price: 59,
-		image: '/card-img/3.jpg',
+		image: 'card-img/3.jpg',
 	},
 	{
 		id: 4,
